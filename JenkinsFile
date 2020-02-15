@@ -2,9 +2,16 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Build docker Image') {
             steps {
                 echo 'Building..'
+                sh 'docker build -t apoojary/hello_python:0.0.0 .'        
+            }
+        }
+        stage('Push docker Image') {
+            steps {
+                echo 'Pushing..'
+                sh 'docker Push -t apoojary/hello_python:0.0.0 .'        
             }
         }
         stage('Test') {
