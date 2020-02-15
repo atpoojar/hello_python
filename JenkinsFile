@@ -8,19 +8,19 @@ pipeline {
         stage('Check docker present') {
             steps {
                 echo 'checking..'
-                sh 'docker version'        
+                sh '/usr/local/bin/docker version'        
             }
          }
         stage('Build docker Image') {
             steps {
                 echo 'Building..'
-                sh 'docker build -t apoojary/hello_python:0.0.0 .'        
+                sh '/usr/local/bin/docker build -t apoojary/hello_python:0.0.0 .'        
             }
         }
         stage('Push docker Image') {
             steps {
                 echo 'Pushing..'
-                sh 'docker Push -t apoojary/hello_python:0.0.0 .'        
+                sh '/usr/local/bin/docker Push -t apoojary/hello_python:0.0.0 .'        
             }
         }
         stage('Test') {
