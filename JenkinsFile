@@ -17,8 +17,9 @@ pipeline {
         stage('Push docker Image') {
             steps {
                 echo 'Pushing..'
-                
-                sh '/usr/local/bin/docker push  apoojary/hello_python:0.0.0'        
+                withCredentials([usernamePassword(credentialsId: 'docker', passwordVariable: 'dockerPass', usernameVariable: 'dockerUser')]) {
+                    sh '/usr/local/bin/docker push  apoojary/hello_python:0.0.0'  
+                }
             }
         }
         stage('Test') {
