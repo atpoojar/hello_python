@@ -17,7 +17,8 @@ pipeline {
         stage('Push docker Image') {
             steps {
                 echo 'Pushing..'
-                sh '/usr/local/bin/docker Push -t apoojary/hello_python:0.0.0 .'        
+                
+                sh '/usr/local/bin/docker push  apoojary/hello_python:0.0.0'        
             }
         }
         stage('Test') {
