@@ -8,6 +8,7 @@ pipeline {
                 echo 'checking..'
                 sh 'docker version'        
             }
+         }
         stage('Build docker Image') {
             steps {
                 echo 'Building..'
