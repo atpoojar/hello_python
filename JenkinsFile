@@ -1,19 +1,10 @@
 pipeline {
-    environment {
-    registry = "atpoojar/hello_python"
-    registryCredential = 'dockerhub'
-    } 
-    agent {
-        dockerfile true
-    }
+    agent any
 
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
-                script{
-                    docker.build registry + ":$BUILD_NUMBER"
-                }
+                echo 'Building..
             }
         }
         stage('Test') {
